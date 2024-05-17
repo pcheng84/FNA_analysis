@@ -79,14 +79,14 @@ cell_mac <- c("#FF7F0EFF", "#EFC000FF", "#0073C2FF")
 names(cell_mac) <- c("Macrophages",  "TTS macrophages", "TTR macrophages")
 
 
-m2b.time <- fread("TP/230515_TuPro_previous_treatment.txt")
+m2b.time <- fread("TuPro_previous_treatment.txt")
 m2b.time[, Biopsy := 0]
 m2b.time[Previous_treatment_class == "", Previous_treatment_class := NA]
 m2b.time[During_treatment_class == "", During_treatment_class := NA]
 
 m2b.time[Next_treatment_class == "", Next_treatment_class := NA]
 
-tp.braf2 <- readRDS("GEO/GEO_submission/TP_SCE.rds")
+tp.braf2 <- readRDS("TP_SCE.rds")
 
 tpt <- makePerCellDF(tp.braf2, features = c("POSTN", "MLANA", "MSR1", "GPNMB", "CD63", "CD68", "CD163", "MDK", "SPP1",
                                              "AXL", "SOX9", "SOX10", "LIPA", "TNF", "VEGFA", "CCL2", 
